@@ -74,6 +74,9 @@ class SuitCase(unittest.TestCase):
         """
         self.assertEqual(combinate(3, 10), 10 * 10 * 10)
 
+    def test_combinate_multiples(self):
+        self.assertEqual(combinate_multiples(5, [9, 12, 8, 7, 3]), 9 * 12 * 8 * 7 * 3)
 
-if __name__ == "__main__":
+
+if __name__ == '__main__':
     unittest.main()
