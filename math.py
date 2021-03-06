@@ -1,4 +1,5 @@
 import unittest
+import operator
 from functools import *
 
 
@@ -52,7 +53,7 @@ def combinate_multiples(l, p):
     """
     if l != len(p):
         raise "1st argument must be equal to the length of the 2nd argument"
-    return reduce(lambda x, y: x * y, p, 1)
+    return reduce(operator.mul, p)
 
 
 class SuitCase(unittest.TestCase):
