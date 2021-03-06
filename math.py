@@ -27,6 +27,22 @@ def fact(n, accumulator=1):
         return fact(n - 1, accumulator * n)
 
 
+def summation(l):
+    """0 - []
+       Σx
+       x=each(l)
+    """
+    return reduce(operator.add, l)
+
+
+def product(l):
+    """0 - []
+       Πx
+       x=each(l)
+    """
+    return reduce(operator.mul, l)
+
+
 def permutate(p, n):
     """
     p - object to be permutated
@@ -53,7 +69,7 @@ def combinate_multiples(l, p):
     """
     if l != len(p):
         raise "1st argument must be equal to the length of the 2nd argument"
-    return reduce(operator.mul, p)
+    return product(p)
 
 
 class SuitCase(unittest.TestCase):
