@@ -10,7 +10,7 @@ def head(x):
 
 
 def tail(xs):
-    if len(xs) < 1:
+    if len(xs) <= 1:
         return []
     return xs[1:]
 
