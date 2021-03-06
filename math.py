@@ -50,7 +50,7 @@ def combinate_multiples(l, p):
     WARNING
     It's very important that you do not put 0 in the list p
     """
-    if l != len(list(p)):
+    if l != len(p):
         raise "1st argument must be equal to the length of the 2nd argument"
     return reduce(lambda x, y: x * y, p, 1)
 
