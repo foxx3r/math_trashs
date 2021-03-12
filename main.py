@@ -1,6 +1,7 @@
 import unittest
 import operator
 from functools import *
+from math import *
 
 
 def head(x):
@@ -72,6 +73,23 @@ def combinate_multiples(l, p):
     return product(p)
 
 
+def combinate_order(l, p):
+    """ Combination -- where order does not matter
+    l - length of object
+    p - number of possibilities
+    """
+    return fact(l) / (fact(l - p) * fact(p))
+
+
+def meneses(p):
+    """
+    It proves that the base of the square root of
+    the permutation of p under 4, plus 1, is equal to
+    (p1 * p4) + 1
+    """
+    return sqrt(permutate(p, 4) + 1)
+
+
 class SuitCase(unittest.TestCase):
     def test_factorial(self):
         self.assertEqual(fact(5), 5 * 4 * 3 * 2 * 1)
@@ -93,6 +111,23 @@ class SuitCase(unittest.TestCase):
 
     def test_combinate_multiples(self):
         self.assertEqual(combinate_multiples(5, [9, 12, 8, 7, 3]), 9 * 12 * 8 * 7 * 3)
+
+    def test_meneses(self):
+        """
+        All permutations of 4, plus 1, gives you a square,
+        and to discover that square, you only need to
+        multiply the first and the last number of permutation
+        together, add 1 and you got the base
+
+        ex:
+        P(p4, 4) = (p1 * p4 + 1)^2
+        """
+        # ({4, 5, 6, 7}, *, fact)
+        # group P
+        p1 = 4
+        p4 = 7
+        self.assertEqual(meneses(p4), p1 * p4 + 1)
+        self.assertEqual(permutate(p4, 4) + 1, (p1 * p4 + 1) ** 2)
 
 
 if __name__ == '__main__':
